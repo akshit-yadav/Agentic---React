@@ -5,12 +5,42 @@ import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
 import { CheckCircle, Bot, MessageCircle, Zap } from "lucide-react";
 
+
+
 function App() {
   const [selectedChannel, setSelectedChannel] = useState("email");
+  const [annual, setAnnual] = useState(false);
+
+  const pricingPlans = [
+    {
+      name: "Starter",
+      monthly: "$29/mo",
+      yearly: "$290/yr",
+      features: ["Up to 2 users", "Basic channels", "Email support"],
+      cta: "Get Started",
+    },
+    {
+      name: "Growth",
+      monthly: "$59/mo",
+      yearly: "$590/yr",
+      features: ["Up to 10 users", "Multichannel SDR", "CRM + WhatsApp integration"],
+      cta: "Get Started",
+    },
+    {
+      name: "Enterprise",
+      monthly: "Custom",
+      yearly: "Custom",
+      features: ["Unlimited users", "All integrations", "Dedicated support"],
+      cta: "Contact Us",
+    },
+  ];
+
 
   const handleChannelChange = (channel) => {
     setSelectedChannel(channel);
   };
+
+
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -88,8 +118,8 @@ function App() {
             <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /> CRM sync for lead management</li>
           </ul>
           <div className="space-x-4 pt-4">
-            <Button className="text-md px-5 py-2">Try Now</Button>
-            <Button variant="outline" className="text-md px-5 py-2">Request Demo</Button>
+            <Button className="text-white text-md px-5 py-2">Try Now</Button>
+            <Button variant="outline" className="text-white text-md px-5 py-2">Book Demo</Button>
           </div>
         </div>
         <div className="w-full md:w-1/2">
@@ -99,20 +129,20 @@ function App() {
       {/* Inside Sales AI Agent Section */}
       <section className="flex flex-col md:flex-row-reverse items-center justify-between gap-12">
         <div className="max-w-xl space-y-4">
-          <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">For Inside Sales</p>
-          <h2 className="text-4xl font-bold">Close Deals Faster with Inside Sales AI Agent</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-sm text-left uppercase tracking-widest text-gray-500 dark:text-gray-400">For Inside Sales</p>
+          <h2 className="text-left text-4xl font-bold">Close Deals Faster with Inside Sales AI Agent</h2>
+          <p className="text-lg text-left text-black">
             From reminders to call logs and meeting booking, your reps can focus on talking while AI handles the rest.
           </p>
           <ul className="list-disc list-inside space-y-2">
-            <li className="flex items-center gap-2"><Bot className="w-5 h-5" /> Auto reminders on WhatsApp</li>
-            <li className="flex items-center gap-2"><MessageCircle className="w-5 h-5" /> Call & CRM updates instantly</li>
-            <li className="flex items-center gap-2"><Zap className="w-5 h-5" /> Follow-up emails that convert</li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /> Integrated calendar for booking</li>
+            <li className="text-left flex items-center gap-2"><Bot className="w-5 h-5" /> Auto reminders on WhatsApp</li>
+            <li className="text-left flex items-center gap-2"><MessageCircle className="w-5 h-5" /> Call & CRM updates instantly</li>
+            <li className="text-left flex items-center gap-2"><Zap className="w-5 h-5" /> Follow-up emails that convert</li>
+            <li className="text-left flex items-center gap-2"><CheckCircle className="w-5 h-5" /> Integrated calendar for booking</li>
           </ul>
           <div className="space-x-4 pt-4">
-            <Button className="text-md px-5 py-2">Start Free</Button>
-            <Button variant="outline" className="text-md px-5 py-2">Book Demo</Button>
+            <Button className="text-white text-md px-5 py-2">Try Now</Button>
+            <Button variant="outline" className="text-white text-md px-5 py-2">Book Demo</Button>
           </div>
         </div>
         <div className="w-full md:w-1/2">
@@ -122,7 +152,7 @@ function App() {
       {/* SDR & Inside Sales AI Agent Section */}
       <section className="text-center space-y-6">
         <h2 className="text-3xl font-bold">SDR & Inside Sales AI Agents</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg text-black max-w-2xl mx-auto">
           Automate outreach, qualification, follow-ups, and calendar booking across multiple channels. Your sales team’s new favorite assistant.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -235,64 +265,65 @@ function App() {
           <Button className="text-lg px-6 py-3 text-white">Start Free Trial</Button>
         </section>
 
+        
+
         {/* Pricing Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">Simple, transparent pricing</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">Choose a plan that fits your business</p>
-          <div className="mt-6 flex justify-center items-center gap-4">
-            <span className="text-sm">Monthly</span>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" onChange={() => setAnnual(!annual)} />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-            </label>
-            <span className="text-sm">Yearly</span>
-          </div>
+        <section className="py-20 bg-white">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold">Simple, transparent pricing</h2>
+        <p className="text-black ">
+          Choose a plan that fits your business
+        </p>
+
+        {/* Toggle Switch */}
+        <div className="mt-6 flex justify-center items-center gap-4">
+          <span className="text-sm">Monthly</span>
+          <label htmlFor="billing-toggle" className="relative inline-flex items-center cursor-pointer">
+            <input
+              id="billing-toggle"
+              type="checkbox"
+              className="sr-only peer"
+              checked={annual}
+              onChange={() => setAnnual(!annual)}
+            />
+            <div className="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 dark:peer-focus:ring-blue-800 peer-checked:bg-blue-600 transition-colors duration-300 relative">
+              <div className="absolute top-[2px] left-[2px] h-5 w-5 bg-white border rounded-full transition-all peer-checked:translate-x-full"></div>
+            </div>
+          </label>
+          <span className="text-sm">Yearly</span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-          {[
-            {
-              name: "Starter",
-              monthly: "$29/mo",
-              yearly: "$290/yr",
-              features: ["Up to 2 users", "Basic channels", "Email support"],
-              cta: "Get Started"
-            },
-            {
-              name: "Growth",
-              monthly: "$59/mo",
-              yearly: "$590/yr",
-              features: ["Up to 10 users", "Multichannel SDR", "CRM + WhatsApp integration"],
-              cta: "Start Free Trial"
-            },
-            {
-              name: "Enterprise",
-              monthly: "Custom",
-              yearly: "Custom",
-              features: ["Unlimited users", "All integrations", "Dedicated support"],
-              cta: "Contact Us"
-            }
-          ].map((plan, idx) => (
-            <div key={idx} className="border rounded-xl p-6 shadow-md dark:bg-gray-800">
+      </div>
+
+      {/* Pricing Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+        {pricingPlans.map((plan, idx) => (
+          <div
+            key={idx}
+            className="border rounded-xl p-6 shadow-md flex flex-col justify-between"
+          >
+            <div>
               <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-              <p className="text-2xl font-bold mb-4">{annual ? plan.yearly : plan.monthly}</p>
+              <p className="text-2xl font-bold mb-4">
+                {annual ? plan.yearly : plan.monthly}
+              </p>
               <ul className="space-y-2 mb-6">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li key={i} className="flex items-center text-black">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" /> {feature}
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-                {plan.cta}
-              </button>
             </div>
-          ))}
-        </div>
-        </section>
+            <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+              {plan.cta}
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
         
         {/* FAQ Section */}
-<section className="py-20 bg-gray-50 dark:bg-gray-800">
+<section className="py-20 bg-gray-100">
   <div className="max-w-4xl mx-auto px-4">
     <h2 className="text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
     <div className="space-y-6">
@@ -314,9 +345,9 @@ function App() {
           a: "Absolutely! Reach out to us and we’ll tailor a solution that fits your needs."
         }
       ].map((item, i) => (
-        <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow">
+        <div key={i} className="bg-white  p-6 rounded shadow">
           <h3 className="text-lg font-semibold mb-2">{item.q}</h3>
-          <p className="text-gray-600 dark:text-gray-300">{item.a}</p>
+          <p className="text-black">{item.a}</p>
         </div>
       ))}
     </div>
