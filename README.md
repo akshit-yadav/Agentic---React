@@ -139,7 +139,7 @@ body {
 
 ## 👨‍💻 Author
 
-- **Akshit Yadav** – [@yourhandle](https://github.com/yourusername)
+- **Akshit Yadav** 
 
 ---
 
